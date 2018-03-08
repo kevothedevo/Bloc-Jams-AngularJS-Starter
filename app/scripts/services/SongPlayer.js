@@ -17,8 +17,7 @@
 */
 var setSong = function(song) {
     if (currentBuzzObject) {
-        currentBuzzObject.stop();
-        SongPlayer.currentSong.playing = null;
+        stopSong(song);
     }
 
     currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -49,8 +48,23 @@ var setSong = function(song) {
 @desc Keeps on the current song if current song is first on list else moves forward
 */
             if (currentSongIndex < 0) {
-                currentBuzzObject.stop();
-                SongPlayer.currentSong.playing = null;
+                stopSong(song);
+            } else {
+                var song = currentAlbum.songs[currentSongIndex];
+                setSong(song);
+                playSong(song);
+            }
+        };
+/**
+For assignment Services-Part-3
+@desc Sets song to skip to next on the album list
+*/
+        SongPlayer.next = function() {
+            var currentSongIndex = getSongIndex(SongPlayer.currentSong);
+            currentSongIndex++;
+
+            if (currentSongIndex == songs.length) {
+                stopSong(song);
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
                 setSong(song);
@@ -61,6 +75,14 @@ var setSong = function(song) {
         playSong = function(song) {
           currentBuzzObject.play();
           song.playing = true;
+        }
+/**
+For assignment Services-Part-3
+@desc Sets song to stop
+*/
+        stopSong = function(song) {
+          currentBuzzObject.stop();
+          song.playing = null;
         }
 /**
 @desc Gets index of the current songs
