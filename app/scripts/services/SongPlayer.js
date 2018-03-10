@@ -42,6 +42,7 @@ var setSong = function(song) {
 @desc Sets song to previous song on list
 */
         SongPlayer.previous = function() {
+          console.log("previous");
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex--;
 /**
@@ -60,6 +61,7 @@ For assignment Services-Part-3
 @desc Sets song to skip to next on the album list
 */
         SongPlayer.next = function() {
+          console.log("next");
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
 
@@ -116,5 +118,5 @@ SongPlayer.currentSong = null;
 
     angular
         .module('blocJams')
-        .factory('SongPlayer', ['Fixture', SongPlayer]);
+        .factory('SongPlayer', ['Fixtures', SongPlayer]);
 })();
