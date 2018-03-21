@@ -2,7 +2,7 @@
     function SongPlayer(Fixtures) {
         var SongPlayer = {};
 
-        var currentAlbum = Fixtures.getAlbum();
+        SongPlayer.currentAlbum = Fixtures.getAlbum();
 
 /**
 * @desc Buzz object audio file
@@ -17,7 +17,7 @@
 */
 var setSong = function(song) {
     if (currentBuzzObject) {
-        stopSong(song);
+        stopSong(SongPlayer.currentSong);
     }
 
     currentBuzzObject = new buzz.sound(song.audioUrl, {
@@ -65,7 +65,7 @@ For assignment Services-Part-3
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
 
-            if (currentSongIndex == songs.length) {
+            if (currentSongIndex == currentAlbum.songs.length) {
                 stopSong(song);
             } else {
                 var song = currentAlbum.songs[currentSongIndex];
@@ -91,7 +91,7 @@ For assignment Services-Part-3
 @type {Function}
 */
 var getSongIndex = function(song) {
-    return currentAlbum.song.indexOf(song);
+    return currentAlbum.songs.indexOf(song);
 };
 
 /**
