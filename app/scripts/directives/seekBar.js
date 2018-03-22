@@ -22,7 +22,7 @@
 
                 var seekBar = $(element);
 
-                var percentString = function () {
+                var percentString = function() {
                     var value = scope.value;
                     var max = scope.max;
                     var percent = value / max * 100;
@@ -31,6 +31,10 @@
 
                 scope.fillStyle = function() {
                     return {width: percentString()};
+                };
+
+                scope.thumbStyle = function() {
+                    return {left: percentString()};
                 };
 
                 scope.onClickSeekBar = function(event) {
