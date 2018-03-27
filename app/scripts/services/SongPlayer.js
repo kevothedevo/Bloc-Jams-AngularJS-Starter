@@ -57,7 +57,7 @@ var setSong = function(song) {
             if (currentSongIndex < 0) {
                 stopSong(song);
             } else {
-                var song = currentAlbum.songs[currentSongIndex];
+                var song = songPlayer.currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
             }
