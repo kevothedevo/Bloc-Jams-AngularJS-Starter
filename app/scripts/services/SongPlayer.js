@@ -57,7 +57,7 @@ var setSong = function(song) {
             if (currentSongIndex < 0) {
                 stopSong(song);
             } else {
-                var song = songPlayer.currentAlbum.songs[currentSongIndex];
+                var song = SongPlayer.currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
             }
@@ -71,10 +71,10 @@ For assignment Services-Part-3
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
 
-            if (currentSongIndex == currentAlbum.songs.length) {
+            if (currentSongIndex == SongPlayer.currentAlbum.songs.length) {
                 stopSong(song);
             } else {
-                var song = currentAlbum.songs[currentSongIndex];
+                var song = SongPlayer.currentAlbum.songs[currentSongIndex];
                 setSong(song);
                 playSong(song);
             }
@@ -107,7 +107,7 @@ For assignment Services-Part-3
 @type {Function}
 */
 var getSongIndex = function(song) {
-    return currentAlbum.songs.indexOf(song);
+    return SongPlayer.currentAlbum.songs.indexOf(song);
 };
 
 /**
