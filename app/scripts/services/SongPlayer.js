@@ -10,6 +10,14 @@
          */
         var currentBuzzObject = null;
 
+        SongPlayer.volume = 50;
+
+        SongPlayer.setVolume = function(volume) {
+            if (currentBuzzObject) {
+              currentBuzzObject.setVolume(volume);
+            }
+        };
+
         /**
          * @function setSong
          * @desc Stops currently playing song and loads new audio file as currentBuzzObject
