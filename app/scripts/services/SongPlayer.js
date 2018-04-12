@@ -62,7 +62,9 @@
             /**
             @desc Keeps on the current song if current song is first on list else moves forward
             */
+
             if (currentSongIndex < 0) {
+                var song = SongPlayer.currentAlbum.songs[currentSongIndex + 1];
                 stopSong(song);
             } else {
                 var song = SongPlayer.currentAlbum.songs[currentSongIndex];
@@ -78,8 +80,8 @@
             console.log("next");
             var currentSongIndex = getSongIndex(SongPlayer.currentSong);
             currentSongIndex++;
-
             if (currentSongIndex == SongPlayer.currentAlbum.songs.length) {
+                var song = SongPlayer.currentAlbum.songs[currentSongIndex - 1];
                 stopSong(song);
             } else {
                 var song = SongPlayer.currentAlbum.songs[currentSongIndex];
