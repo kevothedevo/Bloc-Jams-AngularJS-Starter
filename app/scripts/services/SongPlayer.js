@@ -1,7 +1,6 @@
 (function() {
     function SongPlayer($rootScope, Fixtures) {
         var SongPlayer = {};
-        SongPlayer.currentTime = 0;
 
         SongPlayer.currentAlbum = Fixtures.getAlbum();
 
@@ -130,7 +129,7 @@
          * @desc Current playback time (in seconds) of currently playing song
          * @type {Number}
          */
-        SongPlayer.currentTime = null;
+        SongPlayer.currentTime = 0;
 
         SongPlayer.play = function(song) {
             song = song || SongPlayer.currentSong;
