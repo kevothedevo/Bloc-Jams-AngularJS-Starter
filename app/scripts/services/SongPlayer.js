@@ -1,6 +1,7 @@
 (function() {
     function SongPlayer($rootScope, Fixtures) {
         var SongPlayer = {};
+        SongPlayer.currentTime = 0;
 
         SongPlayer.currentAlbum = Fixtures.getAlbum();
 
